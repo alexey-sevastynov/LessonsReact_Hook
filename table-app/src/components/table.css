@@ -1,0 +1,59 @@
+.container {
+    margin: 0 auto;
+    width: 1000px;
+}
+
+input {
+    margin: 0px;
+    padding: 0;
+    cursor: pointer;
+    font-size: 40px;
+    border: unset;
+    color: black;
+    text-align: center;
+    width: 100%;
+}
+
+input::placeholder {
+    color: gray;
+}
+
+table {
+    border-collapse: collapse;
+    border: 2px solid black;
+    width: 100%;
+
+}
+
+th {
+    height: 30px;
+    font-size: 20px;
+    background: white;
+    width: 16.6%;
+    border: 1px solid black;
+}
+
+.fz16 {
+    font-size: 16px;
+    font-style: italic;
+}
+
+.input__adress {
+    width: 100%;
+}
+
+.input__data {
+    font-size: 20px;
+}
+
+.input__data::placeholder {
+    font-size: 16px;
+}
+
+.input__value {
+    font-size: 20px;
+}
+
+.input__value::placeholder {
+    font-size: 14px;
+}
