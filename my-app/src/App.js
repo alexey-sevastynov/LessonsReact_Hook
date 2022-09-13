@@ -1,15 +1,14 @@
 import React from 'react';
-
-
-import Game from './components/game/Game';
+import { Context } from './components/useContext/Context';
+import Books from './components/useContext/Books';
 
 
 function App() {
 
   return (
-    <div className="App">
-      <Game />
-    </div>
+    <Context className="App">
+      <Books />
+    </Context>
   );
 }
 
