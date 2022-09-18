@@ -1,0 +1,65 @@
+h1 {
+    text-align: center;
+    margin-top: 40px;
+}
+
+h4 {
+    font-size: 22px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+select {
+
+    margin-left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 30px;
+}
+
+option {
+
+    text-align: 20px;
+}
+
+.app-form {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+input {
+    text-align: center;
+    font-size: 20px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 30px;
+    border: 1px solid black;
+}
+
+input::placeholder {
+    font-size: 20px;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn {
+    margin-top: 40px;
+    margin-left: 798px;
+    text-align: center;
+    font-size: 20px;
+    background-color: wheat;
+    cursor: pointer;
+    border-radius: 2px;
+    height: 30px;
+    width: 202px;
+}
+
+.btn:hover {
+    background-color: rgb(255, 178, 123);
+    box-shadow: 1px 1px 1px black;
+}

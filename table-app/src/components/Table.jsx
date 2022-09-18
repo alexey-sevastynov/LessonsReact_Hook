@@ -2,173 +2,47 @@ import './table.css';
 import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import axios from 'axios';
 
-function calcValue(value1, value2) {
+function Table() {
 
-    return Math.abs(+value2 - (+value1)).toFixed(1);
-}
+    const [APIdata, setAPIdata] = useState([]);
 
-function Table({ }) {
-
-    const [generalLight, setGeneralLight] = useState(0);
-    const [noonlLight, setNoonlLight] = useState(0);
-    const [afterNoonlLight, setAfterNoonlLight] = useState(0);
-    const [gas, setGas] = useState(0);
-    const [water, setWater] = useState(0);
-
-    const [generalLight2, setGeneralLight2] = useState(0);
-    const [noonlLight2, setNoonlLight2] = useState(0);
-    const [afterNoonlLight2, setAfterNoonlLight2] = useState(0);
-    const [gas2, setGas2] = useState(0);
-    const [water2, setWater2] = useState(0);
-
-
-
+    useEffect(() => {
+        axios.get('https://sheet.best/api/sheets/adfc2388-5ec2-47e3-b902-cb1e4c084324')
+            .then((incominData) => {
+                setAPIdata(incominData.data);
+            })
+    }, []);
 
 
     return (
-        <div className="container">
+        <div className='table'>
             <table>
-                <caption>
-                    <input className='input__text' type='text' placeholder='Ваша адреса'></input>
-                </caption>
                 <tr>
-                    <th>Дата</th>
-                    <th>Світло <br /> <span className='fz16'>(загальне)</span></th>
-                    <th>Світло <br /> <span className='fz16'>(день)</span></th>
-                    <th>Світло <br /> <span className='fz16'>(ніч)</span></th>
-                    <th>Газ <br /> <span className='fz16'>(загальний)</span></th>
-                    <th>Вода <br /> <span className='fz16'>(загальна)</span></th>
-                </tr>
-                <tr>
-                    <th></th>
-                    <th>кВт</th>
-                    <th>кВт</th>
-                    <th>кВт</th>
-                    <th>куб</th>
-                    <th>куб</th>
-                </tr>
-                <tr>
-                    <th>
-                        <input className='input__data' type='data' placeholder='ввести дату'></input>
-                    </th>
-                    <th>
-                        <input
-                            className='input__value'
-                            type='namber'
-                            placeholder='показання лічильника'
-                            onChange={(event) => setGeneralLight(event.target.value)}
-                        >
-                        </input>
-                    </th>
-                    <th>
-                        <input
-                            className='input__value'
-                            type='namber'
-                            placeholder='показання лічильника'
-                            onChange={(event) => setNoonlLight(event.target.value)}
-                        >
-                        </input>
-                    </th>
-                    <th>
-                        <input
-                            className='input__value'
-                            type='namber'
-                            placeholder='показання лічильника'
-                            onChange={(event) => setAfterNoonlLight(event.target.value)}
-                        >
-                        </input>
-                    </th>
-                    <th>
-                        <input
-                            className='input__value'
-                            type='namber'
-                            placeholder='показання лічильника'
-                            onChange={(event) => setGas(event.target.value)}
-                        >
-                        </input>
-                    </th>
-                    <th>
-                        <input
-                            className='input__value'
-                            type='namber'
-                            placeholder='показання лічильника'
-                            onChange={(event) => setWater(event.target.value)}
-                        >
-                        </input>
-                    </th>
-                </tr>
-                <tr>
-                    <th></th>
-                    <th>{generalLight}</th>
-                    <th>{noonlLight}</th>
-                    <th>{afterNoonlLight}</th>
-                    <th>{gas}</th>
-                    <th>{water}</th>
-                </tr>
-                <tr>
-                    <th>
-                        <input className='input__data' type='data' placeholder='ввести дату'></input>
-                    </th>
-                    <th>
-                        <input
-                            className='input__value'
-                            type='namber'
-                            placeholder='показання лічильника'
-                            onChange={(event) => setGeneralLight2(event.target.value)}
-                        >
-                        </input>
-                    </th>
-                    <th>
-                        <input
-                            className='input__value'
-                            type='namber'
-                            placeholder='показання лічильника'
-                            onChange={(event) => setNoonlLight2(event.target.value)}
-                        >
-                        </input>
-                    </th>
-                    <th>
-                        <input
-                            className='input__value'
-                            type='namber'
-                            placeholder='показання лічильника'
-                            onChange={(event) => setAfterNoonlLight2(event.target.value)}
-                        >
-                        </input>
-                    </th>
-                    <th>
-                        <input
-                            className='input__value'
-                            type='namber'
-                            placeholder='показання лічильника'
-                            onChange={(event) => setGas2(event.target.value)}
-                        >
-                        </input>
-                    </th>
-                    <th>
-                        <input
-                            className='input__value'
-                            type='namber'
-                            placeholder='показання лічильника'
-                            onChange={(event) => setWater(event.target.value)}
-                        >
-                        </input>
-                    </th>
-                </tr>
-                <tr>
-                    <th></th>
-                    <th>{calcValue(generalLight, generalLight2)}</th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
+                    <th>Рік</th>
+                    <th>Місяць</th>
+                    <th>Показання світла</th>
+                    <th>Показання газу</th>
+                    <th>Показання води</th>
                     <th></th>
                 </tr>
 
-
+                {APIdata.map((data) => {
+                    return (
+                        <tr>
+                            <th >{data.year}</th>
+                            <th >{data.month}</th>
+                            <th >{data.light}</th>
+                            <th >{data.gas}</th>
+                            <th >{data.water}</th>
+                            <th ></th>
+                        </tr>
+                    )
+                })
+                }
             </table>
-        </div >
-
+        </div>
     )
 }
 

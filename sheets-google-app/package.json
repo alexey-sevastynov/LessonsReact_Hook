@@ -1,5 +1,5 @@
 {
-  "name": "sheet-app",
+  "name": "sheets-google-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
