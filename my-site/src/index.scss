@@ -42,51 +42,7 @@ header {
   }
 }
 
-.card {
-  margin-left: 40px;
-  border: 1px solid rgb(191, 184, 184);
-  padding: 20px;
-  width: 230px;
 
-  border-radius: 40px;
-
-  transition: box-shadow 0.2s ease-in-out,
-    transform 0.2s ease-in-out;
-
-  .card__img {
-    display: block;
-    margin: 0 auto;
-  }
-
-  span {
-    font-size: 13px;
-    opacity: 0.5;
-    text-transform: uppercase;
-  }
-
-  b {
-    font-size: 13px;
-  }
-
-  .btn {
-    cursor: pointer;
-  }
-
-  .card__text {
-    font-weight: 400;
-    font-size: 14px;
-  }
-
-  .favorite {
-    position: absolute;
-    cursor: pointer;
-  }
-}
-
-.card:hover {
-  box-shadow: 0px 14px 30px rgba(104, 66, 0, 0.099);
-  transform: translateY(-5px);
-}
 
 
 .search {
@@ -94,10 +50,22 @@ header {
   border-radius: 10px;
   padding: 0 15px;
   height: 30px;
-  width: 200px;
+  width: 270px;
   align-self: center;
+  position: relative;
+
+  .remove {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    opacity: 0.5;
+
+    &:hover {
+      opacity: 1;
+    }
 
 
+  }
 
 
   input {
@@ -105,6 +73,7 @@ header {
     border: 0;
     padding: 5px;
     font-size: 16px;
+
   }
 }
 
@@ -122,7 +91,8 @@ header {
 .drawer {
   position: absolute;
   right: 0;
-  width: 385px;
+  top: 0;
+  width: 420px;
   height: 100%;
   background: white;
   box-shadow: -10px 4px 24px rgba(63, 39, 0, 0.325);
@@ -131,4 +101,152 @@ header {
   h2 {
     margin: 0;
   }
+
+
+
+  .img__closes {
+    opacity: 0.5;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      opacity: 1;
+    }
+
+
+
+  }
+}
+
+.drawer__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 20%;
+
+  p {
+    text-align: center;
+  }
+
+  button {
+    position: relative;
+    margin-top: 30px;
+    width: 100%;
+    height: 55px;
+    background-color: rgb(127, 170, 255);
+    border: 0;
+    border-radius: 18px;
+    font-size: 16px;
+    line-height: 55px;
+    font-weight: 600;
+    color: aliceblue;
+    transition: background 0.2s ease-in-out;
+
+    &:hover {
+      background-color: rgb(46, 114, 250);
+      cursor: pointer;
+    }
+
+    &:active {
+      background-color: rgb(16, 94, 250);
+    }
+
+
+  }
+
+
+
+}
+
+.cartItem {
+  margin-top: 30px;
+  border: 1px solid rgb(191, 184, 184);
+  border-radius: 20px;
+  overflow: hidden;
+  padding: 20px;
+
+  p {
+    margin-top: 0;
+    font-size: 16px;
+  }
+
+  b {
+    font-size: 14px;
+  }
+
+  .img__closes {
+    opacity: 0.5;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+
+  }
+
+  .img__closes:hover {
+    opacity: 1;
+  }
+
+}
+
+.drawer {
+  display: flex;
+  flex-direction: column;
+
+  .cartItems {
+    height: 100%;
+    overflow: auto;
+    margin: 10px 0px;
+    padding: 0px 10px;
+  }
+}
+
+
+.drawer-items {
+
+
+  span {
+    width: 200px;
+  }
+
+  b {
+    width: 200px;
+    text-align: right;
+  }
+
+  .dashed {
+    width: 100%;
+    border-bottom: 2px dashed rgba(0, 0, 0, 0.503);
+  }
+
+
+}
+
+.cartTotalBlock {
+  button {
+    position: relative;
+    margin-top: 30px;
+    width: 100%;
+    height: 55px;
+    background-color: rgb(127, 170, 255);
+    border: 0;
+    border-radius: 18px;
+    font-size: 16px;
+    line-height: 55px;
+    font-weight: 600;
+    color: aliceblue;
+    transition: background 0.2s ease-in-out;
+
+    &:hover {
+      background-color: rgb(46, 114, 250);
+      cursor: pointer;
+    }
+
+    &:active {
+      background-color: rgb(16, 94, 250);
+    }
+
+
+  }
+
+
 }
