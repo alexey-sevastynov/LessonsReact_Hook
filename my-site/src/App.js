@@ -1,3 +1,31 @@
+// [
+//   {
+//    "id": "1",
+//    "name": "adidas",
+//    "price": "1200 uah",
+//    "img": "/img/sneakers/1.png"
+//   },
+//   {
+//    "id": "2",
+//    "name": "nike",
+//    "price": "1500 uah",
+//    "img": "/img/sneakers/2.png"
+//   },
+//   {
+//    "id": "3",
+//    "name": "aditdas",
+//    "price": "16200 uah",
+//    "img": "/img/sneakers/3.png"
+//   },
+//   {
+//    "id": "4",
+//    "name": "nitke",
+//    "price": "15600 uah",
+//    "img": "/img/sneakers/4.png"
+//   }
+//  ]
+
+
 
 import axios from 'axios';
 import { useEffect, useState, createContext } from "react";
