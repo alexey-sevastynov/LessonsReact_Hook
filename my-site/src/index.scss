@@ -250,3 +250,27 @@ header {
 
 
 }
+
+.favorite__icons {
+  position: relative;
+
+  .favorite__circle {
+    display: inline-block;
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    font-size: 12px;
+  }
+}
+
+.drawer__icons {
+  position: relative;
+
+  .drawer__count {
+    display: inline-block;
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    font-size: 12px;
+  }
+}

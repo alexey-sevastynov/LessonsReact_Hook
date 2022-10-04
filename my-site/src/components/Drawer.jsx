@@ -1,4 +1,4 @@
-function Drawer({ onClosedDrawer, items = [], onRemove }) {
+function Drawer({ onClosedDrawer, items = [], onRemove, countDraver }) {
     return (
         <div className="overlay">
             <div className="drawer">
@@ -10,8 +10,11 @@ function Drawer({ onClosedDrawer, items = [], onRemove }) {
                         width={30}
                         height={30}
                         src="/img/close.png"
-                        alt="close" />
+                        alt="close"
+                    />
                 </div>
+
+
 
                 {items.length > 0 ?
                     (<div className="drawer">
@@ -26,8 +29,8 @@ function Drawer({ onClosedDrawer, items = [], onRemove }) {
                                 alt="close" />
                         </div>
                         <div className="cartItems">
-                            {items.map((obj, id) => (
-                                <div key={id} className="cartItem d-flex align-center">
+                            {items.map((obj) => (
+                                <div key={obj.id} className="cartItem d-flex align-center">
                                     <img className="mr-20" width={140} height={92} src={obj.img} alt="sneakers" />
                                     <div className="mr-20">
                                         <p className="card__text mb-5">{obj.name}</p>
@@ -90,6 +93,8 @@ function Drawer({ onClosedDrawer, items = [], onRemove }) {
                             </div>
                         </div>
                     )}
+
+               
 
 
 
