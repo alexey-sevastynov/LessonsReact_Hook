@@ -49,3 +49,32 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
 }
+
+.remove {
+    width: 40px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.btn__remove {
+
+    width: 20px;
+    height: 20px;
+    border: none;
+
+    background-image: url('../../public/img/remove.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: unset;
+
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+
+}
+
+.btn__remove:hover {
+    transform: rotate(10deg);
+}

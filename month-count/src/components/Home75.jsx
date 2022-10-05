@@ -4,26 +4,22 @@ import axios from 'axios';
 import './home.css';
 
 
-function Home() {
+function Home75() {
 
-    const [ids, setIds] = useState('');
     const [month, setMonth] = useState('');
     const [year, setYear] = useState('');
     const [light, setLight] = useState(0);
-    const [lightRes, setLightRes] = useState(0);
     const [gas, setGas] = useState(0);
     const [water, setWater] = useState(0);
 
     const [cheluskinaItems, setCheluskinaItems] = useState([]);
 
-    const [hide, setHide] = useState(true);
+    const [hide, setHide] = useState(false);
 
     const objCheluskina = {
-
         year: year,
         month: month,
         light: light,
-        lightRes: lightRes,
         gas: gas,
         water: water
     };
@@ -37,29 +33,13 @@ function Home() {
 
 
     const postMockApi = () => {
-        setTimeout(() => window.location.reload(), 1000);
-
-
-        axios.post('https://633005f6f5fda801f8d97d50.mockapi.io/cheluskina', objCheluskina);
+        setTimeout(() => window.location.reload(), 3000);
+        axios.post('https://633005f6f5fda801f8d97d50.mockapi.io/antonovicha75', objCheluskina);
 
     }
-
-    const removePostMockApi = (obj) => {
-        setTimeout(() => window.location.reload(), 1000);
-        if (obj.target.classList.contains('btn__remove')) {
-            axios.delete(`https://633005f6f5fda801f8d97d50.mockapi.io/cheluskina/${cheluskinaItems[obj.target.value].id}`);
-            console.log('+');
-        } else {
-
-        }
-
-
-    }
-
-
 
     useEffect(() => {
-        axios.get('https://633005f6f5fda801f8d97d50.mockapi.io/cheluskina')
+        axios.get('https://633005f6f5fda801f8d97d50.mockapi.io/antonovicha75')
             .then(res => setCheluskinaItems(res.data));
     }, [])
 
@@ -74,54 +54,21 @@ function Home() {
             {hide ?
                 (<table>
                     <tr >
-                        <th className='tr__table'>Рік</th>
+                        <th className='tr__table'>Рк</th>
                         <th className='tr__table'>Місяць</th>
                         <th className='tr__table'>Показання світла</th>
                         <th className='tr__table'>Показання газу</th>
                         <th className='tr__table'>Показання води</th>
                     </tr>
 
-
-
-
                     {cheluskinaItems.map((item, id) => (
-                        <>
-                            <tr key={id} >
-                                <th>{item.year}</th>
-                                <th>{item.month}</th>
-                                <th>{item.light}</th>
-                                <th>{item.gas}</th>
-                                <th>{item.water}</th>
-                                <div className="remove">
-                                    <button className='btn__remove'
-                                        value={id}
-                                        onClick={(obj) => removePostMockApi(obj)}>
-                                    </button>
-                                </div>
-                                {console.log(cheluskinaItems)}
-                            </tr>
-                            <tr>
-                                <th></th>
-                                <th></th>
-                                <th>
-                                    <input
-                                        type="text"
-                                        onChange={(e) => setLightRes(e.target.value)}
-                                        value={
-
-                                            cheluskinaItems[id].light - cheluskinaItems[1].light
-
-                                        }
-
-                                    />
-                                </th>
-                                <th>{item.gas}</th>
-                                <th>{item.water}</th>
-                            </tr>
-
-                        </>
-
-
+                        <tr key={id}>
+                            <th>{item.year}</th>
+                            <th>{item.month}</th>
+                            <th>{item.light}</th>
+                            <th>{item.gas}</th>
+                            <th>{item.water}</th>
+                        </tr>
                     ))}
 
 
@@ -190,15 +137,14 @@ function Home() {
                     </>
 
 
-                )
-            }
+                )}
 
 
 
 
 
-        </div >
+        </div>
     )
 }
 
-export default Home;
+export default Home75;
