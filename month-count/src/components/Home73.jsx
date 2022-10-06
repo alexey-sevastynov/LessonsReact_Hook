@@ -4,7 +4,7 @@ import axios from 'axios';
 import './home.css';
 
 
-function Home75() {
+function Home73() {
 
     const [month, setMonth] = useState('');
     const [year, setYear] = useState('');
@@ -12,11 +12,11 @@ function Home75() {
     const [gas, setGas] = useState(0);
     const [water, setWater] = useState(0);
 
-    const [antonovicha75Items, setAntonovicha75Items] = useState([]);
+    const [antonovicha73Items, setantonovicha73Items] = useState([]);
 
     const [hide, setHide] = useState(true);
 
-    const obj75 = {
+    const obj73 = {
         year: year,
         month: month,
         light: light,
@@ -32,12 +32,11 @@ function Home75() {
     let months = ['Січень', 'Лютий', 'Березень', 'Квітень', 'Травень', 'Червень', 'Липень', 'Серпень', 'Вересень', 'Жовтень', 'Листопад', 'Грудень'];
 
     useEffect(() => {
-        axios.get('https://633005f6f5fda801f8d97d50.mockapi.io/antonovicha75')
-            .then(res => setAntonovicha75Items(res.data));
+        axios.get('https://633005f6f5fda801f8d97d50.mockapi.io/antonovicha73')
+            .then(res => setantonovicha73Items(res.data));
     }, [])
 
     const postMockApi = () => {
-
         if (year === '') {
             alert('Ведіть рік!');
             return
@@ -59,22 +58,23 @@ function Home75() {
             alert('Ведіть показання води!');
             return
         }
+
         setTimeout(() => window.location.reload(), 200);
-        axios.post('https://633005f6f5fda801f8d97d50.mockapi.io/antonovicha75', obj75);
+        axios.post('https://633005f6f5fda801f8d97d50.mockapi.io/antonovicha73', obj73);
 
     }
 
     const removePostMockApi = (obj) => {
         setTimeout(() => window.location.reload(), 200);
         if (obj.target.classList.contains('btn__remove')) {
-            axios.delete(`https://633005f6f5fda801f8d97d50.mockapi.io/antonovicha75/${antonovicha75Items[obj.target.value].id}`);
+            axios.delete(`https://633005f6f5fda801f8d97d50.mockapi.io/antonovicha73/${antonovicha73Items[obj.target.value].id}`);
             console.log('+');
         }
     }
 
     return (
         <div className='container'>
-            <h1>Володимира Антоновича 75</h1>
+            <h1>Володимира Антоновича 73</h1>
             <button
                 onClick={() => setHide(!hide)}
                 className='btn'>Показання</button>
@@ -88,7 +88,7 @@ function Home75() {
                         <th className='tr__table'>Показання газу</th>
                         <th className='tr__table'>Показання води</th>
                     </tr>
-                    {antonovicha75Items.map((item, id) => (
+                    {antonovicha73Items.map((item, id) => (
                         <>
                             <tr className='light__blue' key={id} >
                                 <th></th>
@@ -97,37 +97,37 @@ function Home75() {
                                 <th>{item.gas}</th>
                                 <th>{item.water}</th>
                                 <div className="remove">
-                                    {antonovicha75Items[id].id === '1' ? null :
+                                    {antonovicha73Items[id].id === '1' ? null :
 
                                         <button className='btn__remove'
                                             value={id}
                                             onClick={(obj) => removePostMockApi(obj)}>
                                         </button>}
                                 </div>
-                                {console.log(antonovicha75Items)}
+                                {console.log(antonovicha73Items)}
                             </tr>
                             <tr className='blue'>
                                 <th>{item.year}</th>
                                 <th>{item.month}</th>
                                 <th>
-                                    {antonovicha75Items[id].id === '1' ?
-                                        antonovicha75Items[id].light :
-                                        antonovicha75Items[id].light - antonovicha75Items[id - 1].light}
+                                    {antonovicha73Items[id].id === '1' ?
+                                        antonovicha73Items[id].light :
+                                        antonovicha73Items[id].light - antonovicha73Items[id - 1].light}
                                     {/* <input
                                         type="text"
                                         onChange={(e) => setLightRes(e.target.value)}
-                                        value={antonovicha75Items[id].id === '1' ?
-                                                antonovicha75Items[id].light :
-                                                antonovicha75Items[id].light - antonovicha75Items[id - 1].light}
+                                        value={antonovicha73Items[id].id === '1' ?
+                                                antonovicha73Items[id].light :
+                                                antonovicha73Items[id].light - antonovicha73Items[id - 1].light}
                                     /> */}
                                 </th>
-                                <th> {antonovicha75Items[id].id === '1' ?
-                                    antonovicha75Items[id].gas :
-                                    antonovicha75Items[id].gas - antonovicha75Items[id - 1].gas}
+                                <th> {antonovicha73Items[id].id === '1' ?
+                                    antonovicha73Items[id].gas :
+                                    antonovicha73Items[id].gas - antonovicha73Items[id - 1].gas}
                                 </th>
-                                <th>{antonovicha75Items[id].id === '1' ?
-                                    antonovicha75Items[id].water :
-                                    antonovicha75Items[id].water - antonovicha75Items[id - 1].water}
+                                <th>{antonovicha73Items[id].id === '1' ?
+                                    antonovicha73Items[id].water :
+                                    antonovicha73Items[id].water - antonovicha73Items[id - 1].water}
                                 </th>
                             </tr>
 
@@ -210,4 +210,4 @@ function Home75() {
     )
 }
 
-export default Home75;
+export default Home73;
